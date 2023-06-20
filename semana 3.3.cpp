@@ -8,10 +8,10 @@ int main (){
 	int i;
 	int i= nombre;
 	
-	char nombre [20];
+	char nombre [35];
 	
 	cout<<"ingrese el nombre de la persona: "<<endl;
-	cin.getline(nombre,20,'/n');
+	cin.getline(nombre,35,'/n');
 	
 	cout<<nombre;
 	
