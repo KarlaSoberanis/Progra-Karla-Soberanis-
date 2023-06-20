@@ -1,9 +1,8 @@
-
 #include <iostream>
 #include <conio.h>
 #include <string.h>
 
-using namespace std; using reverse std;
+using namespace std;
 int main (){
 	char nombre [20];
 	
@@ -12,15 +11,17 @@ int main (){
 	cout<< " " << endl;
 	cin.getline(nombre,20,'/n');
 	
-	cout << nombre << endl;
+	cout<< " "<< endl;
 	
-	string nombre_reversed(nombre);{
+	cout << "frase inversa: "<< endl;
 	
-	reverse(nombre_reversed.begin(), nombre_reversed.end());
-	cout<< nombre_reversed << endl;
+	cout<<" "<<endl;
 	
+	int longitud = strlen(nombre);
+	for (int x =longitud - 1; x>= 0; x--){
+		cout << nombre[x];
 	}
-
 	
 	return 0;
 }
+
