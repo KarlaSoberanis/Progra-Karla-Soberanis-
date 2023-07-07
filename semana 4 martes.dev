@@ -1,51 +1,74 @@
-[Project]
-filename=semana 4 martes.dev
-name=semana 4 martes
-Type=1
-Ver=2
-ObjFiles=
-Includes=
-Libs=
-PrivateResource=
-ResourceIncludes=
-MakeIncludes=
-Compiler=
-CppCompiler=
-Linker=
-IsCpp=1
-Icon=
-ExeOutput=
-ObjectOutput=
-LogOutput=
-LogOutputEnabled=0
-OverrideOutput=0
-OverrideOutputName=
-HostApplication=
-UseCustomMakefile=0
-CustomMakefile=
-CommandLine=
-Folders=
-IncludeVersionInfo=0
-SupportXPThemes=0
-CompilerSet=0
-CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;4;0;0;0
+#include <iostream>
+#include <string>
 
-[VersionInfo]
-Major=1
-Minor=0
-Release=0
-Build=0
-LanguageID=1033
-CharsetID=1252
-CompanyName=
-FileVersion=
-FileDescription=Developed using the Dev-C++ IDE
-InternalName=
-LegalCopyright=
-LegalTrademarks=
-OriginalFilename=
-ProductName=
-ProductVersion=
-AutoIncBuildNr=0
-SyncProduct=1
+using namespace std;
 
+int main() {
+    string nombre;
+    int a;
+    int cursos = 0;
+    int notas[100];
+    float promedio = 0.0;
+
+    do {
+        cout << "MENU" << endl;
+        cout << "   nombre y apellido del alumno " << endl;
+        cout << " notas de los cursos asignados por el profesor" << endl;
+        cout << " presentacion de las notas individuales" << endl;
+        cout << " Promedio general de las notas" << endl;
+        cout << " Salir" << endl;
+
+        cin >> a;
+
+        switch (a) {
+            case 1:
+                cout << "Ingrese el nombre y apellido del estudiante: ";
+                cin.ignore();
+                getline(cin, nombre);
+                break;
+
+            case 2:
+                cout << "Ingrese la cantidad de cursos ";
+                cin >> cursos;
+
+                for (int i = 0; i < cursos; i++) {
+                    cout << "Curso " << i + 1 << ": ";
+                    cin >> notas[i];
+                }
+                break;
+
+            case 3:
+                cout << "presenta las notas individuales." << endl;
+                
+                for (int i = 0; i < cursos; i++) {
+                    cout << "Curso " << i + 1 << ": " << notas[i] << endl;
+                }
+                break;
+
+            case 4:
+                if (nombre.empty()) {
+                    cout << "No has ingresado el nombre del estudiante." << endl;
+                } else if (cursos == 0) {
+                    cout << "No has ingresado las notas de los cursos." << endl;
+                } else {
+                    cout << "Visualiza el promedio general de las notas." << endl;
+                    promedio = 0.0;
+
+                    for (int i = 0; i < cursos; i++) {
+                        promedio += notas[i];
+                    }
+
+                    promedio /= cursos;
+                    cout << "Alumno: " << nombre << endl;
+                    cout << "Promedio: " << fixed << promedio << endl;
+                }
+                break;
+
+            default:
+                cout << "notas entregadas " << endl;
+                break;
+        }
+    } while (a != 5);
+
+    return 0;
+}
